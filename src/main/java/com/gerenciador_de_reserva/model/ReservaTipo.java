@@ -1,12 +1,13 @@
 package com.gerenciador_de_reserva.model;
 
 public enum ReservaTipo {
-    GYM("GYM"), POOL("POOL"),
-    SAUNA("SAUNA");
+    ACADEMIA("ACADEMIA"), PISCINA("PISCINA"),
+    SALA1("SALA 1"), SALA2("SALA 2"),
+    SAUNA("SAUNA"), CONDOMINIO("CONDOMINIO");
 
     private final String name;
 
-    private ReservaTipo(String value) {
+    ReservaTipo(String value) {
         name = value;
     }
 

@@ -29,8 +29,11 @@ public class GerenciadorDeReservaApplication {
             new HashMap<>() {
                 {
                     put(ReservaTipo.SAUNA, 4);
-                    put(ReservaTipo.GYM, 1);
-                    put(ReservaTipo.POOL, 12);
+                    put(ReservaTipo.SALA1, 1);
+                    put(ReservaTipo.SALA2, 1);
+                    put(ReservaTipo.CONDOMINIO, 1);
+                    put(ReservaTipo.PISCINA, 7);
+                    put(ReservaTipo.ACADEMIA, 12);
                 }
             };
 
@@ -59,4 +62,5 @@ public class GerenciadorDeReservaApplication {
 
         return new BCryptPasswordEncoder();
     }
+
 }
