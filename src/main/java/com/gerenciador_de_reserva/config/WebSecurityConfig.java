@@ -1,7 +1,6 @@
 package com.gerenciador_de_reserva.config;
 
 import com.gerenciador_de_reserva.service.UserDetailsServiceImpl;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -28,8 +27,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) {
-        web.ignoring().antMatchers(SECURITY_IGNORED_ENDPOINTS);
+    public void configure(WebSecurity web) {web.ignoring().antMatchers(SECURITY_IGNORED_ENDPOINTS);
     }
 
     @Override

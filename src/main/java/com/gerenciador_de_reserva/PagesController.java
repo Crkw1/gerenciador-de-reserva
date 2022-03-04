@@ -4,29 +4,36 @@ import com.gerenciador_de_reserva.model.Reserva;
 import com.gerenciador_de_reserva.model.User;
 import com.gerenciador_de_reserva.service.ReservaService;
 import com.gerenciador_de_reserva.service.UserService;
-import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import com.gerenciador_de_reserva.service.UserDetailsServiceImpl;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 
 import javax.servlet.http.HttpSession;
 import java.util.Set;
 
 @Controller
-@OpenAPIDefinition
-public record PagesController(UserService userService,
-                              ReservaService reservaService) {
+public class PagesController {
+    final UserService userService;
+    final ReservaService reservaService;
+
+    public PagesController(UserService userService, ReservaService reservaService) {
+        this.userService = userService;
+        this.reservaService = reservaService;
+    }
 
     @GetMapping("/")
-    public String index(Model model) {
-        return "index";
-    }
+    public String index(Model model) { return "index"; }
 
     @GetMapping("/reservas")
     public String reservas(Model model, HttpSession session) {

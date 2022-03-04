@@ -2,22 +2,30 @@ package com.gerenciador_de_reserva;
 
 import com.gerenciador_de_reserva.model.ReservaTipo;
 import com.gerenciador_de_reserva.model.Capacidade;
+import com.gerenciador_de_reserva.model.Reserva;
 import com.gerenciador_de_reserva.model.User;
 import com.gerenciador_de_reserva.repos.CapacidadeRepository;
 import com.gerenciador_de_reserva.repos.UserRepository;
+import com.gerenciador_de_reserva.repos.ReservaRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 @SpringBootApplication
 public class GerenciadorDeReservaApplication {
 
-    private final Map<ReservaTipo, Integer> initialCapacities =
+    private Map<ReservaTipo, Integer> initialCapacities =
             new HashMap<>() {
                 {
                     put(ReservaTipo.SAUNA, 4);

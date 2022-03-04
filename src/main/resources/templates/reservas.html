@@ -25,7 +25,7 @@
             <tbody>
             <tr th:each="reserva : ${session.user.getReservas()}">
                 <td th:text="${reserva.getReservaTipo()}"></td>
-                <td th:text="${reserva.getReserva()}"></td>
+                <td th:text="${reserva.getReservaDate()}"></td>
                 <td th:text="${reserva.getStartTime()}"></td>
                 <td th:text="${reserva.getEndTime()}"></td>
             </tr>
