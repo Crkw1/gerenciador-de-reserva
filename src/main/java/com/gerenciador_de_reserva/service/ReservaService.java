@@ -1,11 +1,9 @@
 package com.gerenciador_de_reserva.service;
 
 import com.gerenciador_de_reserva.exception.CapacidadeFullException;
-import com.gerenciador_de_reserva.model.Capacidade;
 import com.gerenciador_de_reserva.model.Reserva;
 import com.gerenciador_de_reserva.repos.CapacidadeRepository;
 import com.gerenciador_de_reserva.repos.ReservaRepository;
-import com.gerenciador_de_reserva.repos.UserRepository;
 
 import java.util.List;
 
@@ -15,8 +13,17 @@ import org.springframework.web.server.ResponseStatusException;
 
 
 @Service
-public record ReservaService(ReservaRepository reservaRepository,
-                             CapacidadeRepository capacidadeRepository) {
+public class ReservaService {
+
+    private final ReservaRepository reservaRepository;
+    private final CapacidadeRepository capacidadeRepository;
+
+
+    public ReservaService(final ReservaRepository reservaRepository,
+                          final CapacidadeRepository capacidadeRepository) {
+        this.reservaRepository = reservaRepository;
+        this.capacidadeRepository = capacidadeRepository;
+    }
 
     public List<Reserva> findAll() {
         return reservaRepository.findAll();
